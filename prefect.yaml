@@ -1,12 +1,18 @@
-# deployment.yaml
 name: cloud-demo
 flow_name: etl_pipeline
 entrypoint: etl_pipeline.py:etl_pipeline
-work_pool:
-  name: default-agent-pool
-  work_queue_name: default
-  job_variables: {}
+
+version: null
 tags: []
 parameters: {}
 schedule: null
 
+pull:
+  - prefect.deployments.steps.git_clone:
+      repository: https://github.com/PanagiotisGeorgiou/testFlow.git
+      branch: master  # or whichever branch you want
+
+work_pool:
+  name:first-pool
+  work_queue_name: default
+  job_variables: {}
