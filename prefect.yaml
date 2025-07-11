@@ -1,0 +1,12 @@
+# deployment.yaml
+name: cloud-demo
+flow_name: etl_pipeline
+entrypoint: etl_pipeline.py:etl_pipeline
+work_pool:
+  name: default-agent-pool
+  work_queue_name: default
+  job_variables: {}
+tags: []
+parameters: {}
+schedule: null
+
